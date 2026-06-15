@@ -1,10 +1,10 @@
 <template>
-  <h1 class="sr-only">Ebraheem Alhetari - ابراهيم الهتاري</h1>
-  <h2 class="sr-only">Web Developer - مطور ويب</h2>
-
-  <MyEnName id="svg-my-en-name" :class="$attrs.class" />
+  <div id="svg-my-en-name" class="flex flex-col items-start">
+   
+    <h1
+      class="translate-y-full xl:text-[clamp(9.5rem,14vw,40em)] md:text-[clamp(6.5rem,13vw,20em)] text-[clamp(3.2rem,5vw,10em)] leading-none font-extrabold tracking-tight text-flax-smoke-900 uppercase will-change-transform "
+    >
+      ARKAN K ARIF
+    </h1>
+  </div>
 </template>
-
-<script setup lang="ts">
-  import { MyEnName } from '..';
-</script>

@@ -88,7 +88,7 @@
   import { navbarLinks, resourceLinks, socialLinks } from '@/data';
   import { Link } from '..';
   import { onMounted, ref } from 'vue';
-  import { lenis } from '@/main';
+  import { lenis } from '@/lib/lenis';
   import MagneticEffect from '../MagneticEffect.vue';
   import moment from 'moment-timezone';
 

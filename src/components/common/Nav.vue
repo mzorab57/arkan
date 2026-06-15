@@ -87,22 +87,14 @@
             id="name"
             class="font-fancy flex items-start text-xl font-extrabold uppercase md:text-3xl"
           >
-            hetari
-            <span
-              class="font-fancy inline! origin-center! text-xl transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]"
-              >&copy;</span
-            >
+            ARKAN
+            
           </h2>
         </div>
       </MagneticEffect>
 
       <div class="flex justify-start">
-        <p
-          class="heading-6 font-fancy text-flax-smoke-400 hidden font-bold uppercase select-none md:block"
-        >
-          available for freelancers <br />
-          work and collaboration
-        </p>
+       
       </div>
       <div class="flex">
         <ul
@@ -133,7 +125,7 @@
     navbarScale,
   } from '@/animations';
   import { navbarLinks, navLinks, socialLinks } from '@/data';
-  import { lenis } from '@/main';
+  import { lenis } from '@/lib/lenis';
 
   const isNavbarOpen = ref(false);
 

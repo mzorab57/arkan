@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import MotionPathHelper from 'gsap/MotionPathPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Ref } from 'vue';
-import { lenis } from '@/main';
+import { lenis } from '@/lib/lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathHelper);
@@ -322,12 +322,12 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  gsap.to('#svg-my-en-name g path', {
+  gsap.to('#svg-my-en-name > *', {
     y: 0,
     delay: 0.2,
     duration: 1.5,
     ease: 'power4.inOut',
-    stagger: 0.01,
+    stagger: 0.08,
   });
 
   gsap.to('#star', {
