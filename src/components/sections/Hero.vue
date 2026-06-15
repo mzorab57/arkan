@@ -62,20 +62,20 @@
 
           <div
             id="profile-container"
-            class="relative col-span-4 mt-10 h-[20vh] max-w-lg flex-col rounded-lg select-none sm:mt-0 sm:h-full md:flex md:h-[50vh]"
+            class="relative col-span-5 md:col-span-4 lg:col-span-4 mt-10 h-[20vh] max-w-lg flex-col rounded-lg select-none sm:mt-0 sm:h-full md:flex md:h-[50vh]"
           >
             <div class="overlay bg-flax-smoke-50 absolute inset-0 z-2"></div>
             <img
               id="profile-img"
               :src="profile"
               alt="Arkan K Arif profile"
-              class="size-full scale-90 rounded-lg object-cover object-top brightness-110 grayscale"
+              class="size-full scale-90 rounded-lg object-cover object-top brightness-110 grayscale-50"
             />
           </div>
 
           <!-- content-end justify-self-end  -->
           <div
-            class="relative col-span-8 size-full overflow-clip text-end sm:col-span-4"
+            class="relative  size-full overflow-clip text-end col-span-6 md:col-span-4"
           >
             <div
               id="available-for-work"
