@@ -1,4 +1,4 @@
-import profile from './profile-arkan.webp';
+import profile from './profile-arkan-r.png';
 import profile2 from './profile2.webp';
 import esmail from './esmail.webp';
 import mohammad from './mohammad.webp';

@@ -1,20 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap')
-layer(base);
+@font-face {
+  font-family: 'Doran';
+  src: url('/fonts/Doran-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
-@layer utilities {
-  @font-face {
-    font-family: 'title';
-    src: url('./assets/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
-    font-style: normal;
-  }
+@font-face {
+  font-family: 'Doran';
+  src: url('/fonts/Doran-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Doran';
+  src: url('/fonts/Doran-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'title';
+  src: url('./assets/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+  font-style: normal;
 }
 
 @import 'tailwindcss';
 
 @theme {
   /* Font families */
-  --font-title: 'title';
-  --font-body: 'body';
+  --font-title: 'Doran';
+  --font-body: 'Doran';
 
   /* Colors */
   --color-flax-smoke-50: #f4f4f1;
@@ -42,7 +61,7 @@ layer(base);
   --max-width-10xl: 3200px;
 
   /* Custom base styles */
-  --font-fancy: 'Bricolage Grotesque';
+  --font-fancy: 'Doran';
   --heading-6: clamp(1rem, 0.928rem + 0.36vw, 1.25rem);
   --heading-5: clamp(1.13rem, 1.004rem + 0.63vw, 1.57rem);
   --heading-4: clamp(1.25rem, 1.0359rem + 1.0707vw, 1.9995rem);
@@ -56,6 +75,21 @@ layer(base);
 
 @utility font-fancy {
   font-family: var(--font-fancy) !important;
+}
+
+@utility font-doran {
+  font-family: 'Doran', sans-serif !important;
+  font-weight: 400;
+}
+
+@utility font-doran-medium {
+  font-family: 'Doran', sans-serif !important;
+  font-weight: 500;
+}
+
+@utility font-doran-bold {
+  font-family: 'Doran', sans-serif !important;
+  font-weight: 700;
 }
 
 @utility light-theme {
@@ -211,7 +245,7 @@ layer(base);
   h4,
   h5,
   h6 {
-    @apply font-fancy!;
+  @apply font-fancy;
   }
 
   a {

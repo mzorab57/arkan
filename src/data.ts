@@ -1,7 +1,7 @@
 // Nav type
 export type navLinkType = {
   label: string;
-  url: string;
+  url?: string;
 };
 
 // Nav
@@ -27,12 +27,31 @@ const navLinks = [
     url: '#contact-section',
   },
 ];
-const navbarLinks = [
+const navbarLinks: navLinkType[] = [
   {
-    label: 'Home',
-    url: '#app',
+    label: 'بەخێر بێن',
   },
-  ...navLinks,
+  {
+    label: 'گەشتی چین بۆ بازرگانی',
+  },
+  {
+    label: 'گەشتی دوبەی بۆ بازرگانی',
+  },
+  {
+    label: 'گەشتی 3 مانگ مەدینە',
+  },
+  {
+    label: 'گەشتی 15 شەوی برایان',
+  },
+  {
+    label: 'پاکێجی بزنس و ئیسلام',
+  },
+  {
+    label: 'پاکێجی بزنس سەلام',
+  },
+  {
+    label: 'پەیوەندی',
+  },
 ];
 
 const socialLinks = [

@@ -21,7 +21,8 @@
     <div class="flex h-full flex-col items-center justify-between">
       <div class="relative z-19 w-full">
         <ul
-          class="heading-2 text-flax-smoke-50 mt-12 font-bold md:mt-24"
+          dir="rtl"
+          class="heading-3 text-flax-smoke-50 mt-12 text-right leading-1 md:mt-24"
           id="navLinks"
         >
           <li
@@ -30,20 +31,19 @@
             :key="l.label"
             :id="l.label"
           >
-            <a
-              :href="l.url"
-              @click="gotoSection(l.url)"
-              class="group my-2 flex h-full w-fit translate-y-full cursor-pointer items-center justify-start leading-none will-change-auto"
+            <button
+              type="button"
+              class="group my-7 flex h-full w-fit translate-y-full cursor-pointer items-center justify-start leading-none will-change-auto"
             >
               <span
-                class="bg-flax-smoke-50 h-4 w-4 scale-0 rounded-full opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
+                class="bg-flax-smoke-50 translate-x-6 h-4 w-4 scale-0 rounded-full opacity-0 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100"
               ></span>
               <p
                 class="font-fancy -translate-x-5 transition-all duration-300 ease-in-out group-hover:translate-x-5"
               >
                 {{ l.label }}
               </p>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -85,7 +85,7 @@
         <div id="name-container" class="group -m-10 h-fit cursor-pointer p-10">
           <h2
             id="name"
-            class="font-fancy flex items-start text-xl font-extrabold uppercase md:text-3xl"
+            class="font-fancy text-flax-smoke-300 pl-2 flex items-start text-xl font-extrabold uppercase md:text-3xl"
           >
             ARKAN
             
@@ -93,22 +93,6 @@
         </div>
       </MagneticEffect>
 
-      <div class="flex justify-start">
-       
-      </div>
-      <div class="flex">
-        <ul
-          class="w-full flex-1 gap-1 overflow-y-hidden text-lg font-medium md:flex md:gap-2 md:text-xl lg:gap-4 lg:text-2xl xl:text-3xl"
-        >
-          <Link
-            v-for="(l, index) in navLinks"
-            :key="l.label"
-            tag="li"
-            :label="l.label + (index !== navLinks.length - 1 ? ',' : '')"
-            :url="l.url"
-          />
-        </ul>
-      </div>
     </nav>
   </header>
 </template>
@@ -124,8 +108,7 @@
     animateNavbarLeave,
     navbarScale,
   } from '@/animations';
-  import { navbarLinks, navLinks, socialLinks } from '@/data';
-  import { lenis } from '@/lib/lenis';
+  import { navbarLinks, socialLinks } from '@/data';
 
   const isNavbarOpen = ref(false);
 
@@ -137,18 +120,12 @@
 
     const x = document.getElementById('navbar') as HTMLDivElement;
     if (isNavbarOpen.value) {
-      animateNavbarEnter('#navbar', '#navLinks li a', '.contact');
+      animateNavbarEnter('#navbar', '#navLinks li button', '.contact');
       x.focus();
     } else {
-      animateNavbarLeave('#navbar', '#navLinks li a', '.contact');
+      animateNavbarLeave('#navbar', '#navLinks li button', '.contact');
       x.blur();
     }
-  };
-
-  const gotoSection = (url: string) => {
-    lenis.start();
-    lenis.scrollTo(url, { duration: 3 });
-    toggleBtnClickAnimation();
   };
 
   onMounted(() => {

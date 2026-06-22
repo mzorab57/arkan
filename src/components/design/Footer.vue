@@ -17,10 +17,14 @@
         <div class="mt-2 space-y-1">
           <p v-for="link in section.links" :key="link.label" class="heading-6">
             <Link
+              v-if="link.url"
               class="font-medium tracking-wider lowercase"
               :label="link.label"
               :url="link.url"
             />
+            <span v-else class="font-medium tracking-wider">
+              {{ link.label }}
+            </span>
           </p>
         </div>
       </div>

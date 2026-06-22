@@ -48,7 +48,7 @@
       class="text-flax-smoke-200 relative rounded-t-3xl bg-[#0B0B0A] py-[5%]"
     >
       <Services />
-      <Marquee />
+     
       <Works />
     </div>
 

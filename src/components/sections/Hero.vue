@@ -1,20 +1,33 @@
 <template>
-  <section class="padding-x mb-[-100svh] py-0">
+  <section class=" mb-[-100svh] py-0 ">
     <div
       id="hero"
-      class="sticky top-0 flex min-h-svh w-full items-end pb-[clamp(2.25rem,2.1786rem_+_0.3571vi,2.5rem)]"
+      class="sticky top-0  lg:px-4 flex min-h-svh w-full items-start pt-24  md:items-end md:pt-0  "
     >
-      <div class="relative flex w-full flex-col items-center">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          id="bg-hero"
+          :src="bgHero"
+          alt="Arkan K Arif hero background"
+          class="w-full h-full object-cover "
+        />
+        <!-- Overlay بۆ تاریککردنی background -->
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+
+      <div class="relative z-10 flex w-full flex-col items-center mt-9 ">
         <div class="w-full items-end overflow-clip">
-          <div class="flex w-full  gap-10 ">
+          <div class="flex w-full gap-10 px-1">
             <MyName />
             <Star id="star" class="hide-on-mobile translate-x-full" />
           </div>
         </div>
 
-        <div class="lg:column-gap spacing-t grid w-full grid-cols-12">
+ <!-- Overlay text kurdi lagall image ka   background -->
+        <div class="spacing-t  lg:column-gap grid w-full grid-cols-12 gap-y-8 md:gap-y-0">
           <div
-            class="col-span-full flex flex-col items-start gap-14 md:col-span-4"
+            class="order-1 col-span-full flex flex-col items-start gap-12 md:col-span-4 md:gap-14"
           >
             <div class="overflow-hidden">
               <svg
@@ -37,21 +50,18 @@
               </svg>
             </div>
 
-            <p dir="rtl" class="3xl:heading-3 heading-3 xl:heading-4 lg:heading-5 sm:heading-6 text-justify px-2">
-            سنوورەکانت تێپەڕێنە، پرۆژەی خۆت دەست پێ بکە و بۆ هیجرەت ئامادە ببە
-فێرکارییە پیشەییەکان و ڕاوێژکاری تایبەت بۆ بەدەستهێنانی ئامانجەکانت
+            <p
+              id="whoAmI"
+              dir="rtl"
+              class="heading-5 font-doran w-full text-flax-smoke-300 max-w-none overflow-clip px-1 text-right leading-relaxed  md:max-w-[37ch] lg:text-start"
+            >
+              سنوورەکانت تێپەڕێنە، پرۆژەی خۆت دەست پێ بکە و بۆ هیجرەت ئامادە ببە
+              فێرکارییە پیشەییەکان و ڕاوێژکاری تایبەت بۆ بەدەستهێنانی
+              ئامانجەکانت
             </p>
-          
 
-            <div class="relative origin-left overflow-hidden ld:scale-150 sm:pb-5">
+            <div  class="relative px-1 origin-left overflow-hidden sm:pb-5 md:scale-150">
               <div id="contact-btn" class="flex -translate-y-full">
-                <!-- <Button
-                  :data-cal-namespace="dataCalNamespace"
-                  :data-cal-link="dataCalLink"
-                  :data-cal-config="dataCalConfig"
-                  class="contact"
-                  label="Get in touch"
-                /> -->
                 <Button
                   label="ئێستا دەستبکە بە گۆڕانکاری"
                   url="https://wa.me/967775367671"
@@ -62,36 +72,28 @@
 
           <div
             id="profile-container"
-            class="relative col-span-5 md:col-span-4 lg:col-span-4 mt-10 h-[20vh] max-w-lg flex-col rounded-lg select-none sm:mt-0 sm:h-full md:flex md:h-[50vh]"
+            class="relative order-2 col-span-full   h-[49vh] w-full  flex-col overflow-hidden rounded-[1.75rem]  md:col-span-6 md:translate-x-10 lg:translate-x-0 lg:col-span-4  md:flex md:h-[50vh]  "
           >
-            <div class="overlay bg-flax-smoke-50 absolute inset-0 z-2"></div>
             <img
               id="profile-img"
               :src="profile"
               alt="Arkan K Arif profile"
-              class="size-full scale-90 rounded-lg object-cover object-top brightness-110 grayscale-50"
+              class="relative z-10 size-full scale-125 object-contain object-bottom  pt-4 brightness-90   md:pt-5"
             />
           </div>
 
-          <!-- content-end justify-self-end  -->
           <div
-            class="relative  size-full overflow-clip text-end col-span-6 md:col-span-4"
+            class="relative order-2 col-span-full hidden size-full overflow-clip text-end md:order-3 md:col-span-4 lg:block"
           >
             <div
               id="available-for-work"
               class="absolute right-0 bottom-0 flex translate-y-full flex-col items-end"
             >
               <p
-                class="3xl:heading-2 heading-2  block leading-snug font-medium -tracking-tight uppercase"
+                class="3xl:heading-2 pb-2 font-doran text-flax-smoke-300 heading-2 leading-snug font-medium -tracking-tight uppercase"
               >
                 {{ AvailableForWorkDate }}
               </p>
-              <h3
-                dir="rtl"
-                class="3xl:heading-1 heading-1-alt block leading-none font-bold -tracking-tight"
-              >
-               
-              </h3>
             </div>
           </div>
         </div>
@@ -102,23 +104,13 @@
 </template>
 
 <script setup lang="ts">
-  import { onBeforeMount, ref } from 'vue';
+  import { ref } from 'vue';
   import { MyName, Star } from '../design';
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
-  import { textSplitterIntoChar } from '@/functions';
-  // import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
-
-  const whoAmI = ref('');
-  const whoAmILines = [
-    'سنوورەکانت تێپەڕێنە، پرۆژەی خۆت دەست پێ بکە و بۆ هیجرەت ئامادە ببە',
-    'فێرکارییە پیشەییەکان و ڕاوێژکاری تایبەت بۆ بەدەستهێنانی ئامانجەکانت',
-  ];
+  
+  // وێنەی background import بکە
+  import bgHero from '@/assets/images/bg-hero.jpg'; // ڕێگای وێنەکە بگۆڕە
+  
   const AvailableForWorkDate = ref('بەخێربێن، سەرکردەکانی سبەینێ');
-
-  onBeforeMount(() => {
-    whoAmI.value = whoAmILines
-      .map((line) => textSplitterIntoChar(line))
-      .join('<br />');
-  });
 </script>
