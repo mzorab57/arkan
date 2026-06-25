@@ -16,52 +16,27 @@
         <div class="absolute inset-0 bg-black/50"></div>
       </div>
 
-      <div class="relative z-10 flex w-full flex-col items-center mt-9 ">
-        <div class="w-full items-end overflow-clip">
-          <div class="flex w-full gap-10 px-1">
-            <MyName />
-            <Star id="star" class="hide-on-mobile translate-x-full" />
-          </div>
-        </div>
-
- <!-- Overlay text kurdi lagall image ka   background -->
-        <div class="spacing-t  lg:column-gap grid w-full grid-cols-12 gap-y-8 md:gap-y-0">
+      <div class="relative z-10 w-full lg:mt-6 ">
+        <div class="relative grid w-full grid-cols-12 gap-y-8 md:gap-y-0 lg:min-h-[82vh] lg:items-start">
           <div
-            class="order-1 col-span-full flex flex-col items-start gap-12 md:col-span-4 md:gap-14"
+            class="order-1 col-span-full flex flex-col items-start gap-5 md:col-span-4 md:gap-16 lg:order-2 lg:col-span-6 lg:col-start-6 lg:items-end lg:self-start lg:pt-6"
           >
-            <div class="overflow-hidden">
-              <svg
-                id="down-arrow"
-                stroke="currentColor"
-                fill="none"
-                stroke-width="1.25"
-                viewBox="6 6 12 12"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="hide-on-mobile m-0 size-4 -translate-x-full p-0 md:size-6"
-                color="#8C8C73"
-                style="color: #8c8c73"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line x1="7" y1="7" x2="17" y2="17"></line>
-                <polyline points="17 7 17 17 7 17"></polyline>
-              </svg>
+            <div class="w-full overflow-clip lg:flex   lg:justify-end">
+              <MyName />
             </div>
 
             <p
               id="whoAmI"
               dir="rtl"
-              class="heading-5 font-doran w-full text-flax-smoke-300 max-w-none overflow-clip px-1 text-right leading-relaxed  md:max-w-[37ch] lg:text-start"
+              class="heading-5 font-doran text-flax-smoke-300 max-w-none overflow-clip px-4 text-right leading-relaxed md:max-w-[37ch] lg:-mt-3 lg:max-w-[32ch]"
             >
               سنوورەکانت تێپەڕێنە، پرۆژەی خۆت دەست پێ بکە و بۆ هیجرەت ئامادە ببە
               فێرکارییە پیشەییەکان و ڕاوێژکاری تایبەت بۆ بەدەستهێنانی
               ئامانجەکانت
             </p>
 
-            <div  class="relative px-1 origin-left overflow-hidden sm:pb-5 md:scale-150">
-              <div id="contact-btn" class="flex -translate-y-full">
+            <div class="relative origin-left overflow-visible px-1 sm:pb-5 md:scale-150 lg:origin-right lg:scale-110">
+              <div id="contact-btn" class="relative z-20 flex -translate-y-full">
                 <Button
                   label="ئێستا دەستبکە بە گۆڕانکاری"
                   url="https://wa.me/967775367671"
@@ -72,28 +47,44 @@
 
           <div
             id="profile-container"
-            class="relative order-2 col-span-full   h-[49vh] w-full  flex-col overflow-hidden rounded-[1.75rem]  md:col-span-6 md:translate-x-10 lg:translate-x-0 lg:col-span-4  md:flex md:h-[50vh]  "
+            class="relative order-2 col-span-full mt-2 h-[49vh] w-full scale-110 flex-col overflow-hidden rounded-[1.75rem] md:col-span-6 md:flex md:h-[50vh] md:translate-x-10 lg:order-1 lg:col-span-5 lg:col-start-1 lg:mt-0 lg:h-[78vh] lg:translate-x-0   "
           >
             <img
               id="profile-img"
               :src="profile"
               alt="Arkan K Arif profile"
-              class="relative z-10 size-full scale-125 object-contain object-bottom  pt-4 brightness-90   md:pt-5"
+              class="relative z-10 size-full object-contain object-bottom brightness-90"
             />
           </div>
 
           <div
-            class="relative order-2 col-span-full hidden size-full overflow-clip text-end md:order-3 md:col-span-4 lg:block"
+            class="pointer-events-none absolute bottom-[7rem] left-1/2 z-20 hidden w-[19rem] -translate-x-1/2 rounded-[1.5rem]  p-3 shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur-sm lg:block"
+          >
+            <img
+              :src="qiamLogo"
+              alt="Qiyam Group logo"
+              class="h-auto w-full object-contain"
+            />
+          </div>
+
+          <div
+            class="pointer-events-none absolute right-3 bottom-[4.5rem] z-20 w-[7.5rem] rounded-[1.25rem]  p-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.28)] backdrop-blur-sm lg:hidden"
+          >
+            <img
+              :src="qiamLogo"
+              alt="Qiyam Group logo"
+              class="h-auto w-full object-contain"
+            />
+          </div>
+
+          <div
+            class="relative order-3 col-span-full hidden size-full overflow-clip text-end lg:absolute lg:right-0 lg:bottom-0 lg:block lg:w-[32rem]"
           >
             <div
               id="available-for-work"
               class="absolute right-0 bottom-0 flex translate-y-full flex-col items-end"
             >
-              <p
-                class="3xl:heading-2 pb-2 font-doran text-flax-smoke-300 heading-2 leading-snug font-medium -tracking-tight uppercase"
-              >
-                {{ AvailableForWorkDate }}
-              </p>
+             
             </div>
           </div>
         </div>
@@ -105,23 +96,21 @@
 
 <script setup lang="ts">
   import gsap from 'gsap';
-  import { onMounted, ref } from 'vue';
-  import { MyName, Star } from '../design';
+  import { onMounted } from 'vue';
+  import { MyName } from '../design';
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
+  import qiamLogo from '@/assets/images/result (1).png';
   
   // وێنەی background import بکە
   import bgHero from '@/assets/images/bg-hero.jpg'; // ڕێگای وێنەکە بگۆڕە
   
-  const AvailableForWorkDate = ref('بەخێربێن، سەرکردەکانی سبەینێ');
-
   onMounted(() => {
     if (document.body.classList.contains('stop-scrolling')) {
       return;
     }
 
     gsap.set('#svg-my-en-name > *', { y: 0 });
-    gsap.set('#star', { x: 0 });
     gsap.set('#profile-img', { scale: 1 });
     gsap.set(['#down-arrow', '#contact-btn', '#available-for-work'], {
       x: 0,

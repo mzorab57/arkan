@@ -74,6 +74,8 @@ const scrollToSection = (url: string) => {
 };
 
 const navigateTo = async (url: string) => {
+  if (!url) return;
+
   const isExternalLink =
     url.startsWith('http://') ||
     url.startsWith('https://') ||
@@ -86,29 +88,38 @@ const navigateTo = async (url: string) => {
   }
 
   if (url.startsWith('/')) {
-    const [path, hash] = url.split('#');
-    await router.push(hash ? `${path}#${hash}` : path);
-    if (hash && router.currentRoute.value.path === '/') {
+    const resolvedRoute = router.resolve(url);
+    const isSameRoute =
+      resolvedRoute.fullPath === router.currentRoute.value.fullPath;
+
+    if (!isSameRoute) {
+      await router.push(resolvedRoute);
+    }
+
+    if (resolvedRoute.hash) {
       requestAnimationFrame(() => {
-        scrollToSection(`#${hash}`);
+        scrollToSection(resolvedRoute.hash);
       });
     }
+
     return;
   }
 
-  if (url.startsWith('#') && router.currentRoute.value.path !== '/') {
-    await router.push(`/${url}`);
+  if (url.startsWith('#')) {
+    if (router.currentRoute.value.path !== '/') {
+      await router.push(`/${url}`);
+    }
+
     requestAnimationFrame(() => {
       scrollToSection(url);
     });
+
     return;
   }
 
   scrollToSection(url);
 };
 
-const gotoSection = (url: string) => {
-  void navigateTo(url);
-};
+const gotoSection = async (url: string) => navigateTo(url);
 
 export { textSplitterIntoChar, getAvailableForWorkDate, gotoSection, navigateTo };

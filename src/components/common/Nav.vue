@@ -100,7 +100,7 @@
         >
           <h2
             id="name"
-            class="font-fancy text-flax-smoke-300 pl-2 flex items-start text-xl font-extrabold uppercase md:text-3xl"
+            class="font-fancy text-flax-smoke-300 hidden  pl-2 lg:flex items-start text-xl font-extrabold uppercase md:text-3xl"
           >
             ARKAN
             
@@ -147,9 +147,20 @@
     }
   };
 
-  const goToMenuSection = (url?: string) => {
+  const goToMenuSection = async (url?: string) => {
     if (!url) return;
-    gotoSection(url);
+    await gotoSection(url);
+
+    if (url.startsWith('/') && !url.includes('#')) {
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'auto',
+        });
+      });
+    }
+
     if (isNavbarOpen.value) {
       toggleBtnClickAnimation();
     }

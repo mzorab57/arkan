@@ -14,7 +14,6 @@
         loop
         playsinline
       ></video>
-       :style="'background-image: url(' + contact + ') !important; '" 
       <div class="flex-center z-10 w-full max-w-6xl flex-col gap-y-10 px-4">
         <p
           dir="rtl"
@@ -76,33 +75,7 @@
   import { Vue3Lottie } from 'vue3-lottie';
   import Link from '../Link.vue';
   import { contact } from '@/assets/videos';
-  import { reactive } from 'vue';
   // import { dataCalConfig, dataCalLink, dataCalNamespace } from '@/data';
-
-  const whatsappNumber = '966567302842';
-  const contactForm = reactive({
-    name: '',
-    phone: '',
-    tour: 'پەیوەندی گشتی',
-    email: '',
-  });
-
-  const submitContactToWhatsApp = () => {
-    const message = [
-      'سڵاو، دەمەوێت پەیوەندی بکەم و زانیاری زیاتر وەربگرم.',
-      '',
-      `ناوی کەسەکە: ${contactForm.name}`,
-      `ژمارەی تەلەفۆن: ${contactForm.phone}`,
-      `جۆری گەشت / پاکێج: ${contactForm.tour}`,
-      `ئیمەیڵ: ${contactForm.email}`,
-    ].join('\n');
-
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-      '_blank',
-      'noopener,noreferrer',
-    );
-  };
 </script>
 
 <style>

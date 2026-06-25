@@ -47,13 +47,20 @@
           class="absolute right-5 -bottom-40 z-20 max-w-[90%] rounded-2xl text-right backdrop-blur-xl"
         >
           <h3
-            class="heading-4 px-2 py-1 font-title! font-bold tracking-widest text-white drop-shadow transition-colors duration-300"
+            class="heading-5 px-2 py-1 font-title! font-bold tracking-widest text-white drop-shadow transition-colors duration-300"
           >
             {{ packageItem.name }}
           </h3>
+           <p class="text-xs lg:text-sm  text-flax-smoke-200 font-medium leading-relaxed">
+            {{ packageItem.summary }}
+          </p>
+         
         </div>
+        
       </div>
+      
     </div>
+    
     <div class="mt-5 space-y-5 text-right" dir="rtl">
       <div class="space-y-3">
         <p

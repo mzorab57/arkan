@@ -9,16 +9,16 @@
     
       <div
         id="selected-works-text"
-        class="md:column-gap text-flax-smoke-300 mt-[5%] grid grid-cols-12 justify-end opacity-0 lg:grid"
+        class="md:column-gap text-flax-smoke-300 mt-[5%] grid lg:grid-cols-12 grid-cols-8 justify-end opacity-0 lg:grid"
       >
         <p
-          class="heading-6 text-flax-smoke-300/85 col-span-4 text-center text-nowrap lg:col-start-2"
+          class="heading-6 hidden lg:block text-flax-smoke-300/85 col-span-4 text-center text-nowrap lg:col-start-2"
         >
-          ({{ packagesData.length }} گەشت)
+          (٧ گەشت  )
         </p>
         <p
           dir="rtl"
-          class="heading-4 font-fancy tracking-[0.2em] col-span-8 w-full text-balance text-right sm:font-semibold lg:col-span-7"
+          class="heading-4 font-fancy lg:tracking-[0.2em] col-span-8 w-full text-balance text-right sm:font-semibold lg:col-span-7"
         >
           هەموو گەشتە بازرگانییەکان و پاکێجە تایبەتەکانت لێرە کۆکراونەتەوە
           بە شێوەیەک کە لەگەڵ دیدگای `Qiyam Group` و ئامانجەکانی تۆ بگونجێت.

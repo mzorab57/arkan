@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="padding-x mb-20">
+  <section id="services" class="padding-x lg:mb-20">
     <div class="flex w-full flex-col">
       <!-- پێویستە dir="rtl" زیاد بکەیت بۆ ئەوەی ڕاست بۆ چەپ دەربکەوێت -->
       <h3
@@ -11,12 +11,12 @@
 
       <div
         id="services-text"
-        class="grid-gap text-flax-smoke-300 mt-[5%] grid grid-cols-12 justify-end opacity-0 lg:grid"
+        class="grid-gap text-flax-smoke-300 mt-[5%] grid grid-cols-8 lg:grid-cols-12 justify-end opacity-0 lg:grid"
       >
-        <p class="heading-6  text-flax-smoke-300/85 col-span-4 col-start-0 text-center text-nowrap md:col-start-4">
+        <p class="heading-6 hidden lg:block text-flax-smoke-300/85 col-span-4 col-start-0 text-center text-nowrap md:col-start-4">
           ( خزمەتەکان )
         </p>
-        <p dir="rtl" class="heading-4 font-fancy  leading-relaxed tracking-[0.2rem] col-span-8 w-full text-balance sm:font-semibold md:col-span-5">
+        <p dir="rtl" class="heading-4 font-fancy lg:tracking-[0.2em] leading-relaxed  col-span-8 w-full text-balance sm:font-semibold md:col-span-5">
          
 ئێمە یارمەتیت دەدەین سنوورەکانت بشکێنیت 
 
