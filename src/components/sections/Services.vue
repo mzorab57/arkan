@@ -54,6 +54,13 @@
   import { onBeforeMount, onMounted, ref } from 'vue';
   import { ServicesCard } from '..';
 
+  type ServiceCardProps = {
+    title: string;
+    body: string;
+    headings: string[];
+    shape: string;
+  };
+
   const whatIDo = ref('My services /');
 
   // فەنکشنێکی نوێ بۆ جیاکردنەوەی وشەکان لەبری پیتەکان
@@ -61,7 +68,7 @@
     return text.split(' ').map(word => `<span class="words inline-block ml-3">${word}</span>`).join('');
   };
 
-  const servicesCardProps = [
+  const servicesCardProps: ServiceCardProps[] = [
     // داتاکانی خۆت وەکو خۆی...
   ];
 
@@ -75,7 +82,5 @@
     animateSplitText('#what-i-do .words', '#services-text', 0.7, 0.01, 0);
   });
 
-  const getStyle = (index: number) => {
-    // ...
-  };
+  const getStyle = (_index: number) => '';
 </script>

@@ -1,6 +1,6 @@
 <template>
   <component  :is="url ? 'a' : 'button'" 
-    @click="()=>{
+    @click.prevent="()=>{
       if (url) {
         gotoSection(url);
       }

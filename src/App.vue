@@ -42,42 +42,21 @@
   <Cursor />
   <Navbar @isLocked="LockeScroll" />
 
-  <main class="relative min-h-full">
-    <Hero />
-    <div
-      class="text-flax-smoke-200 relative rounded-t-3xl bg-[#0B0B0A] py-[5%]"
-    >
-      <Services />
-     
-      <Works />
-    </div>
-
-    <aboutMe />
-    <People />
-    <Contact />
-  </main>
+  <RouterView />
 
   <Footer />
 </template>
 
 <script setup lang="ts">
-  import {
-    Hero,
-    People,
-    Services,
-    Works,
-    aboutMe,
-    Contact,
-  } from '@/components/sections';
   import { onMounted, type Ref, ref, watch } from 'vue';
   import {
     LoadingScreen,
-    Marquee,
     SamsungError,
     Footer,
     Cursor,
   } from '@/components/design';
   import { useWindowSize } from '@vueuse/core';
+  import { RouterView } from 'vue-router';
 
   import { Navbar } from './components/common';
   import { lenis, raf } from '@/lib/lenis';

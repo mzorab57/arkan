@@ -1,4 +1,5 @@
 import { lenis } from '@/lib/lenis';
+import router from '@/router';
 
 const textSplitterIntoChar = (
   text: string,
@@ -63,7 +64,7 @@ const getAvailableForWorkDate = () => {
   return `${month} '${year}`;
 };
 
-const gotoSection = (url: string) => {
+const scrollToSection = (url: string) => {
   lenis.start();
   if (url === '#testimonials-section') {
     lenis.scrollTo('#slider', { duration: 3 });
@@ -72,4 +73,42 @@ const gotoSection = (url: string) => {
   lenis.scrollTo(url, { duration: 3 });
 };
 
-export { textSplitterIntoChar, getAvailableForWorkDate, gotoSection };
+const navigateTo = async (url: string) => {
+  const isExternalLink =
+    url.startsWith('http://') ||
+    url.startsWith('https://') ||
+    url.startsWith('mailto:') ||
+    url.startsWith('tel:');
+
+  if (isExternalLink) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  if (url.startsWith('/')) {
+    const [path, hash] = url.split('#');
+    await router.push(hash ? `${path}#${hash}` : path);
+    if (hash && router.currentRoute.value.path === '/') {
+      requestAnimationFrame(() => {
+        scrollToSection(`#${hash}`);
+      });
+    }
+    return;
+  }
+
+  if (url.startsWith('#') && router.currentRoute.value.path !== '/') {
+    await router.push(`/${url}`);
+    requestAnimationFrame(() => {
+      scrollToSection(url);
+    });
+    return;
+  }
+
+  scrollToSection(url);
+};
+
+const gotoSection = (url: string) => {
+  void navigateTo(url);
+};
+
+export { textSplitterIntoChar, getAvailableForWorkDate, gotoSection, navigateTo };

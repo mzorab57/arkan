@@ -104,7 +104,8 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import gsap from 'gsap';
+  import { onMounted, ref } from 'vue';
   import { MyName, Star } from '../design';
   import { Button } from '@/components/common';
   import { profile } from '@/assets/images';
@@ -113,4 +114,18 @@
   import bgHero from '@/assets/images/bg-hero.jpg'; // ڕێگای وێنەکە بگۆڕە
   
   const AvailableForWorkDate = ref('بەخێربێن، سەرکردەکانی سبەینێ');
+
+  onMounted(() => {
+    if (document.body.classList.contains('stop-scrolling')) {
+      return;
+    }
+
+    gsap.set('#svg-my-en-name > *', { y: 0 });
+    gsap.set('#star', { x: 0 });
+    gsap.set('#profile-img', { scale: 1 });
+    gsap.set(['#down-arrow', '#contact-btn', '#available-for-work'], {
+      x: 0,
+      y: 0,
+    });
+  });
 </script>

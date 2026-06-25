@@ -1,3 +1,5 @@
+import { packagesData } from '@/data/packages';
+
 // Nav type
 export type navLinkType = {
   label: string;
@@ -28,61 +30,32 @@ const navLinks = [
   },
 ];
 const navbarLinks: navLinkType[] = [
-  {
-    label: 'بەخێر بێن',
-  },
-  {
-    label: 'گەشتی چین بۆ بازرگانی',
-  },
-  {
-    label: 'گەشتی دوبەی بۆ بازرگانی',
-  },
-  {
-    label: 'گەشتی 3 مانگ مەدینە',
-  },
-  {
-    label: 'گەشتی 15 شەوی برایان',
-  },
-  {
-    label: 'پاکێجی بزنس و ئیسلام',
-  },
-  {
-    label: 'پاکێجی بزنس سەلام',
-  },
+  ...packagesData.map((item) => ({
+    label: item.name.includes('بەخێربێن') ? 'بەخێر بێن' : item.name,
+    url: item.href,
+  })),
   {
     label: 'پەیوەندی',
+    url: '/#contact-section',
   },
 ];
 
 const socialLinks = [
   {
-    label: 'X',
-    url: 'https://x.com/hetaridev',
+    label: 'Instagram',
+    url: 'https://www.instagram.com/arkan_quraan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
   {
-    label: 'Telegram',
-    url: 'https://t.me/e_1_e',
+    label: 'Facebook',
+    url: 'https://www.facebook.com/barzakh.kompany',
   },
   {
-    label: 'GitHub',
-    url: 'https://github.com/hetari',
-  },
-  {
-    label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/hetaridev/',
+    label: 'WhatsApp',
+    url: 'https://wa.me/966567302842',
   },
 ];
 
-const resourceLinks = [
-  {
-    label: 'Pillarstack',
-    url: 'https://www.pillarstack.com',
-  },
-  {
-    label: 'Figma Template',
-    url: 'https://www.figma.com/community/file/1328038510191576951/project-starter-template',
-  },
-];
+const resourceLinks: navLinkType[] = [];
 
 const heroText =
   'A freelance full-stack developer, making good shit since 2023, hiding bad shit since 2023.';

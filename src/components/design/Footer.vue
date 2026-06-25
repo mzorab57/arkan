@@ -1,24 +1,25 @@
 <template>
   <footer
-    class="relative flex flex-col items-center justify-center gap-20 p-[2%]"
+    dir="rtl"
+    class="relative flex flex-col items-center justify-center gap-16 p-[2%]"
   >
-    <div class="grid w-full grid-cols-2 text-base sm:gap-x-6 md:grid-cols-12">
+    <div class="grid w-full grid-cols-1 text-base sm:gap-x-6 md:grid-cols-12">
       <div
         v-for="section in footerSections"
         :key="section.title"
         class="flex flex-col md:col-span-3"
-        :class="{ 'md:col-span-6': section.title === 'Menu' }"
+        :class="{ 'md:col-span-6': section.title === 'مێنیو' }"
       >
         <p
-          class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
+          class="heading-5 border-flax-smoke-400 w-full border-b pt-6 lg:pt-0 text-right font-bold"
         >
           {{ section.title }}
         </p>
-        <div class="mt-2 space-y-1">
+        <div class="mt-2 space-y-1 text-right">
           <p v-for="link in section.links" :key="link.label" class="heading-6">
             <Link
               v-if="link.url"
-              class="font-medium tracking-wider lowercase"
+              class="font-medium tracking-wider"
               :label="link.label"
               :url="link.url"
             />
@@ -30,20 +31,30 @@
       </div>
     </div>
 
-    <div class="grid w-full grid-cols-12">
+    <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-12">
       <div class="col-span-7 place-content-center md:col-span-6">
-        <h6 class="heading-4 sm:heading-2 leading-none font-bold">
-          © {{ new Date().getFullYear() }} Huy <br />
-          All rights reserved.
+        <h6 class="heading-6  leading-none font-bold">
+        
+          هەموو مافەکان پارێزراون.
         </h6>
+        <p class="heading-6 mt-4 flex items-center justify-start gap-2 text-flax-smoke-400">
+          <span>دروستکراوە لەلایەن</span>
+          <a
+            class="text-flax-smoke-200 underline underline-offset-4"
+            href="https://wa.me/9647701411893"
+            target="_blank"
+            rel="noreferrer"
+          >
+            al-code
+          </a>
+        </p>
       </div>
 
       <div
-        class="col-span-5 place-content-center max-sm:place-content-end md:col-span-3"
+        class="col-span-5 place-content-center max-sm:place-content-start md:col-span-3"
       >
-        <p class="heading-6 font-bold uppercase">Hetari's Local time</p>
-        <p class="heading-6">{{ myLocalTime }}</p>
-        <p class="heading-6 font-bold uppercase">Your Local time</p>
+       
+        <p class="heading-6 mt-2 font-bold">کاتی تۆ</p>
         <p class="heading-6">{{ userLocalTime }}</p>
       </div>
 
@@ -98,10 +109,10 @@
 
   // Combine footer sections dynamically
   const footerSections = [
-    { title: 'Menu', links: navbarLinks },
-    { title: 'Socials', links: socialLinks },
-    { title: 'Resources', links: resourceLinks },
-  ];
+    { title: 'مێنیو', links: navbarLinks },
+    { title: 'سۆشیال', links: socialLinks },
+    { title: 'زیاتر', links: resourceLinks },
+  ].filter((section) => section.links.length > 0);
 
   const myLocalTime = ref('');
   const userLocalTime = ref('');
