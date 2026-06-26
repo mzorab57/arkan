@@ -47,11 +47,11 @@
           class="absolute right-5 -bottom-40 z-20 max-w-[90%] rounded-2xl text-right backdrop-blur-xl"
         >
           <h3
-            class="heading-5 px-2 py-1 font-title! font-bold tracking-widest text-white drop-shadow transition-colors duration-300"
+            class="heading-5 px-2 py-1 font-title! font-extrabold tracking-widest text-white drop-shadow transition-colors duration-300"
           >
             {{ packageItem.name }}
           </h3>
-           <p class="text-xs tracking-[0.2em] lg:text-sm   text-flax-smoke-200 font-medium leading-relaxed">
+           <p class="text-xs tracking-[0.2em] lg:text-sm   text-flax-smoke-200 font-font-fancy leading-relaxed">
             {{ packageItem.summary }}
           </p>
          
@@ -66,7 +66,7 @@
         <p
           v-for="paragraph in packageItem.description"
           :key="paragraph"
-          class="heading-7 tracking-[0.2em] text-flax-smoke-200 lg:font-medium leading-relaxed"
+          class="heading-7 tracking-[0.2em] text-flax-smoke-200 lg:font-semibold font-fancy leading-relaxed"
         >
           {{ paragraph }}
         </p>
