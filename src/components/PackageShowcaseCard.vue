@@ -51,7 +51,7 @@
           >
             {{ packageItem.name }}
           </h3>
-           <p class="text-xs lg:text-sm  text-flax-smoke-200 font-medium leading-relaxed">
+           <p class="text-xs tracking-[0.2em] lg:text-sm   text-flax-smoke-200 font-medium leading-relaxed">
             {{ packageItem.summary }}
           </p>
          
@@ -66,7 +66,7 @@
         <p
           v-for="paragraph in packageItem.description"
           :key="paragraph"
-          class="heading-6 text-flax-smoke-200 font-medium leading-relaxed"
+          class="heading-7 tracking-[0.2em] text-flax-smoke-200 lg:font-medium leading-relaxed"
         >
           {{ paragraph }}
         </p>
@@ -76,7 +76,7 @@
         <p
           v-for="tag in packageItem.tags"
           :key="tag"
-          class="border-flax-smoke-300 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out hover:bg-flax-smoke-300 hover:text-flax-smoke-900"
+          class="border-flax-smoke-300 text-sm rounded-full border px-2.5 py-1 transition-[background-color,color] duration-500 ease-in-out hover:bg-flax-smoke-300 hover:text-flax-smoke-900"
         >
           <span>{{ tag }}</span>
         </p>
@@ -85,13 +85,14 @@
         >
           <span>{{ packageItem.order }}</span>
         </p>
+       
       </div>
 
       <div
         v-if="packageItem.note"
-        class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm"
+        class="rounded-2xl border border-white/10 bg-white/5 px-3 py-4 backdrop-blur-sm"
       >
-        <p class="heading-6 text-flax-smoke-100 leading-relaxed">
+        <p class="heading-7 tracking-[0.2em] text-flax-smoke-100 leading-relaxed">
           {{ packageItem.note }}
         </p>
       </div>

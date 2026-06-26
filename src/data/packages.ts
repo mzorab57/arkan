@@ -25,7 +25,7 @@ export type PackageItem = {
 export const packagesData: PackageItem[] = [
   {
     sectionId: 'welcome-section',
-    order: '01',
+    order: '',
     category: 'دەستپێک',
     name: 'بەخێربێن بۆ بونیادنانی سەرکردەکانی سبەینێ',
     summary: 'بە چوار گەشتی ناوازە و دوو پاکێجی خوولی بزنس، هەموو ژیانت بگۆڕە لە ڕووی دین و دونیاکەتەوە.',
@@ -45,7 +45,7 @@ export const packagesData: PackageItem[] = [
   },
   {
     sectionId: 'china-trip-section',
-    order: '02',
+    order: '01',
     category: 'گەشتی بازرگانی',
     name: 'گەشتی چین بۆ بازرگانی',
     summary: 'نوقمبوونێکی تەواو بازرگانی بۆ خستنەبازاڕی براندەکەت.',
@@ -62,7 +62,7 @@ export const packagesData: PackageItem[] = [
   },
   {
     sectionId: 'dubai-trip-section',
-    order: '03',
+    order: '02',
     category: 'گەشتی بازرگانی',
     name: 'گەشتی دوبەی بۆ بازرگانی',
     summary:
@@ -80,7 +80,7 @@ export const packagesData: PackageItem[] = [
   },
   {
     sectionId: 'medina-trip-section',
-    order: '04',
+    order: '03',
     category: 'گەشتی روحی',
     name: 'گەشتی 3 مانگی لە مەدینە',
     summary: 'لە شوێنێکی ئیلهام‌بەخشدا بژی و مانایەکی نوێ بە ژیانت ببەخشە.',
@@ -97,7 +97,7 @@ export const packagesData: PackageItem[] = [
   },
   {
     sectionId: 'brothers-trip-section',
-    order: '05',
+    order: '04',
     category: 'گەشتی تایبەت',
     name: 'گەشتی 15 شەوی برایان',
     summary: 'ئەزموونی عومرەیەکی تایبەت بکە لە مەدینە و مەککە.',
@@ -113,7 +113,7 @@ export const packagesData: PackageItem[] = [
   },
   {
     sectionId: 'business-islam-package-section',
-    order: '06',
+    order: '05',
     category: 'پاکێجی بزنس',
     name: 'پاکێجی بزنس و ئیسلام',
     summary: 'ڕاهێنانی کارگێڕی بۆ بەدەستهێنانی سەرمایەی خۆت لە 0 دۆلارەوە.',
@@ -129,7 +129,7 @@ export const packagesData: PackageItem[] = [
   },
   {
     sectionId: 'business-salam-package-section',
-    order: '07',
+    order: '06',
     category: 'پاکێجی بزنس',
     name: 'پاکێجی بزنس سەلام',
     summary: 'حەرەم 100% حەڵاڵ و شێوازی فرۆشتنی ئۆنلاین بەبێ ستۆک.',
