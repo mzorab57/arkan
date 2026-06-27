@@ -47,14 +47,13 @@
           class="absolute right-5 -bottom-40 z-20 max-w-[90%] rounded-2xl text-right backdrop-blur-xl"
         >
           <h3
-            class="heading-5 px-2 py-1 font-title! font-extrabold tracking-widest text-white drop-shadow transition-colors duration-300"
+            class="heading-5 px-2 py-1 font-title! font-extrabold tracking-normal [letter-spacing:0] [word-spacing:0.2em] text-white drop-shadow transition-colors duration-300"
           >
             {{ packageItem.name }}
           </h3>
-           <p class="text-xs tracking-[0.2em] lg:text-sm   text-flax-smoke-200 font-font-fancy leading-relaxed">
+          <p class="text-xs lg:text-sm text-flax-smoke-200 leading-relaxed tracking-normal [letter-spacing:0] [word-spacing:0.2em]">
             {{ packageItem.summary }}
           </p>
-         
         </div>
         
       </div>
@@ -66,7 +65,7 @@
         <p
           v-for="paragraph in packageItem.description"
           :key="paragraph"
-          class="heading-7 tracking-[0.2em] text-flax-smoke-200 lg:font-semibold font-fancy leading-relaxed"
+          class="heading-7 text-flax-smoke-200 leading-relaxed tracking-normal [letter-spacing:0] [word-spacing:0.3em] lg:font-semibold"
         >
           {{ paragraph }}
         </p>
@@ -92,7 +91,7 @@
         v-if="packageItem.note"
         class="rounded-2xl border border-white/10 bg-white/5 px-3 py-4 backdrop-blur-sm"
       >
-        <p class="heading-7 tracking-[0.2em] text-flax-smoke-100 leading-relaxed">
+        <p class="heading-7 text-flax-smoke-100 leading-relaxed tracking-normal [letter-spacing:0] [word-spacing:0.08em]">
           {{ packageItem.note }}
         </p>
       </div>
